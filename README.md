@@ -9,9 +9,14 @@ If user chooses case 1, then they are asked for the stock ticker. The input is c
 Then the first method is called to make search the file for the max, min, and avg price of that stock price.
 In case 2 and 3, variables are initialized to hold stock prices and another variable is initialized to identify the case.
 Both cases call the same method and send parameters to method so that max and min stock prices are found.
-In case c or C(break is omitted so user input is case insensitive) current file name is initialized to a string and then path directory to current file is placed.
+***In case c or C(break is omitted so user input is case insensitive) current file name is initialized to a string and then path directory to current file is placed.
 User is asked for new file name. If original file name exists then it is given the new file name.
 User is prompted that update of file name is successful.
+
+EDIT************
+Rename of file is removed and program is updated so that a change of file can be employed by user, rather than a change in the orginal files actual name. Just had to remove a few lines of code.
+
+
 Case q changes value of initial value so that loop ends.
 If user enters a value other then what is listed, default is executed.
 When user enters '1' case 1 executes and calls method GetStocksStats
