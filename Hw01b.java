@@ -21,7 +21,6 @@ public class Hw01b
             System.out.println("Enter 'c' to change the stockfile name");
             System.out.println("Enter 'q' to quit");
             System.out.print("\nYour choice: ");
-        
             String choice = number.next();          //takes user input choice
        
          switch (choice)                            //switch statement begins
@@ -33,7 +32,7 @@ public class Hw01b
                  String that = ticker.next();                       //user enters name of stock ticker      
                  System.out.println();
                  String Case = that.toUpperCase();                  //changes user input to captials letters                   
-                  
+                  System.out.println(fileName);
                  GetStocksStats(fileName, Case);                    //calls method to search file for stock ticker entered
            
                break;
@@ -58,29 +57,12 @@ public class Hw01b
                   
                case "c":
                case "C":
-                 String fileName1;
-                 fileName1 = fileName;                                          //holds old file name
-                 Path source = Paths.get(fileName);                             //directory to old file
                  Scanner name = new Scanner(System.in);
-                 System.out.print("\nEnter a stock filename: ");                
-                 fileName1 = name.next();                                       //takes new file name
-                 System.out.println();
-                 File file = new File(fileName);                                //if orginal file exists
-                if (file.exists())                                              //then rename the file
-                {                                                               //to new user inputted file name
-                    Files.move(source, source.resolveSibling(fileName1));
-                }
-                  
-                    File file2 = new File(fileName1);
-               if(file2.exists())                                               //prompts user when file name change is successful
-               {
-                    System.out.println("Rename Succuessful\n");
-               }
-               else
-                    System.out.println("File does not exist\n");                //if orginal file does not exist, prompts user
-              
-            fileName = fileName1;
-                
+                 System.out.print("\nEnter a stock filename: ");  //takes new file name                
+                 fileName = name.next();                                       
+        
+                 System.out.println("Filename change Succuessful\n");
+
                break;
                 
                case "q":
@@ -129,6 +111,7 @@ public class Hw01b
                     
                 }
             }
+            scan.close();
             if(max == 0)                                //if ticker is not found
                              System.out.println(Case1 + " was not found.\n");
                         else
@@ -174,6 +157,7 @@ public class Hw01b
                     }
                 }
                 System.out.println("\n" + stockTicker + " has the lowest price of $" + fprice + "\n");
+                scan.close();
             }
             if(key == -1)                       //identifies case(finds max stock price)
             {
@@ -188,8 +172,10 @@ public class Hw01b
                         fprice = change;
                         stockTicker = StockName;//tracks stock name
                     }
+                   
                 }
                 System.out.println("\n" + stockTicker + " has the highest price of $" + fprice + "\n");
+                scan.close();
             }
         }
     } 
