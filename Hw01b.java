@@ -32,7 +32,6 @@ public class Hw01b
                  String that = ticker.next();                       //user enters name of stock ticker      
                  System.out.println();
                  String Case = that.toUpperCase();                  //changes user input to captials letters                   
-                  System.out.println(fileName);
                  GetStocksStats(fileName, Case);                    //calls method to search file for stock ticker entered
            
                break;
